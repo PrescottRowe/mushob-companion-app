@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="mushroomid.MainPage"
+             Title="Mushroom Identifier"
+             BackgroundColor="Beige">
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="Gray">
+            <Button Text="ID" Clicked="GoToPage2" Grid.Row="0" Grid.Column="0" />
+            <Button Text="My Mushrooms" Grid.Row="0" Grid.Column="1"/>
+            <Button Text="Directory"  Grid.Row="1" Grid.Column="0"/>
+            <Button Text="Forum"  Grid.Row="1" Grid.Column="1"/>
+            <Button Text="Help" Grid.Row="2" Grid.Column="0"/>
+            <Button Text="?" Grid.Row="2" Grid.Column="1" />
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

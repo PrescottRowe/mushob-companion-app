@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="mushroomid.Page2">
+    <ContentPage.Content>
+        <Grid Padding="10,20,10,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label
+                Text="Add A Photo"
+                Grid.ColumnSpan="2"
+                HorizontalTextAlignment="Center"
+                FontSize="20"/>
+            <Image
+                x:Name="image"
+                Grid.ColumnSpan="2"
+                Grid.Row="1"
+                BackgroundColor="#F0F0F0"/>
+            <Button
+                x:Name="takePhoto"
+                Text="Take Photo"
+                BackgroundColor="CadetBlue"
+                Grid.Row="2" Grid.Column="0"/>
+            <Button
+                Text="Next"
+                Clicked="GoToNextPage"
+                BackgroundColor="CadetBlue"
+                Grid.Row="2" Grid.Column="1"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
