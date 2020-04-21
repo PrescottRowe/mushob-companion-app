@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\presc\\source\\repos\\MushroomID\\mushroomid\\mushroomid\\mushroomid.csproj": {}
+    "C:\\Users\\presc\\source\\repos\\mushroomid\\mushroomid\\mushroomid\\mushroomid.csproj": {}
   },
   "projects": {
-    "C:\\Users\\presc\\source\\repos\\MushroomID\\mushroomid\\mushroomid\\mushroomid.csproj": {
+    "C:\\Users\\presc\\source\\repos\\mushroomid\\mushroomid\\mushroomid\\mushroomid.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\presc\\source\\repos\\MushroomID\\mushroomid\\mushroomid\\mushroomid.csproj",
+        "projectUniqueName": "C:\\Users\\presc\\source\\repos\\mushroomid\\mushroomid\\mushroomid\\mushroomid.csproj",
         "projectName": "mushroomid",
-        "projectPath": "C:\\Users\\presc\\source\\repos\\MushroomID\\mushroomid\\mushroomid\\mushroomid.csproj",
+        "projectPath": "C:\\Users\\presc\\source\\repos\\mushroomid\\mushroomid\\mushroomid\\mushroomid.csproj",
         "packagesPath": "C:\\Users\\presc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\presc\\source\\repos\\MushroomID\\mushroomid\\mushroomid\\obj\\",
+        "outputPath": "C:\\Users\\presc\\source\\repos\\mushroomid\\mushroomid\\mushroomid\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -52,6 +52,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.3, )"
+            },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
             },
             "Xam.Plugin.Connectivity": {
               "target": "Package",

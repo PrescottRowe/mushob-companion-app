@@ -29,24 +29,24 @@ namespace mushroomid
             {
                 return new List<mushroom>
                 {
-                  new mushroom() {mushroomId="58", mushroomName="Agarics", Url="Agarics.jpg"},
-                  new mushroom() {mushroomId="658", mushroomName="Chanterelles", Url="Chanterelles.jpg" },
-                  new mushroom() {mushroomId="488", mushroomName="Boletes", Url="Boletes.jpg" },
-                  new mushroom() {mushroomId="878", mushroomName="Polypores & Bracket", Url="Pollypores_Bracket.jpg" },
-                  new mushroom() {mushroomId="669", mushroomName="Jelly", Url="Jelly.jpg" },
-                  new mushroom() {mushroomId="604", mushroomName="Crust & Parchment", Url="Crust_Parchment.jpg"},
-                  new mushroom() {mushroomId="611", mushroomName="Teeth", Url="Teeth.jpg" },
-                  new mushroom() {mushroomId="630", mushroomName="Coral", Url="Coral.jpg" },
-                  new mushroom() {mushroomId="724", mushroomName="Gastroid Agarics", Url="Gastroid_Agarics.jpg" },
-                  new mushroom() {mushroomId="677", mushroomName="Earthstars & Puffballs", Url="EarthStars_PuffBalls.jpg" },
-                  new mushroom() {mushroomId="715", mushroomName="Stalked Puffballs", Url="StalkedPuffBalls.jpg" },
-                  new mushroom() {mushroomId="778", mushroomName="Bird's Nest", Url="BirdsNests.jpg" },
-                  new mushroom() {mushroomId="764", mushroomName="Stinkhorns", Url="StinkHorns.jpg" },
-                  new mushroom() {mushroomId="739", mushroomName="False Truffles", Url="FalseTruffles.jpg" },
-                  new mushroom() {mushroomId="841", mushroomName="Truffles", Url="Truffles.jpg" },
-                  new mushroom() {mushroomId="878", mushroomName="Flask", Url="FlaskFungi.jpg" },
-                  new mushroom() {mushroomId="783", mushroomName="Morels, Elfin, Cup", Url="Morel_elfin_saddle_cup.jpg" },
-                  new mushroom() {mushroomId="865", mushroomName="Earth Tongues", Url="EarthTongues.jpg" }
+                  new mushroom() {mushroomId="1", mushroomName="Agarics", Url="Agarics.jpg"},
+                  new mushroom() {mushroomId="2", mushroomName="Chanterelle", Url="Chanterelles.jpg" },
+                  new mushroom() {mushroomId="3", mushroomName="Bolete", Url="Boletes.jpg" },
+                  new mushroom() {mushroomId="4", mushroomName="Polypore", Url="Pollypores_Bracket.jpg" },
+                  new mushroom() {mushroomId="5", mushroomName="Jelly", Url="Jelly.jpg" },
+                  new mushroom() {mushroomId="6", mushroomName="Crust", Url="Crust_Parchment.jpg"},
+                  new mushroom() {mushroomId="7", mushroomName="Teeth", Url="Teeth.jpg" },
+                  new mushroom() {mushroomId="8", mushroomName="Coral", Url="Coral.jpg" },
+                  new mushroom() {mushroomId="9", mushroomName="Gastroid Agaric", Url="Gastroid_Agarics.jpg" },
+                  new mushroom() {mushroomId="10", mushroomName="Earthstar", Url="EarthStars_PuffBalls.jpg" },
+                  new mushroom() {mushroomId="11", mushroomName="Puffball", Url="StalkedPuffBalls.jpg" },
+                  new mushroom() {mushroomId="12", mushroomName="Birds Nest", Url="BirdsNests.jpg" },
+                  new mushroom() {mushroomId="13", mushroomName="Stinkhorn", Url="StinkHorns.jpg" },
+                  new mushroom() {mushroomId="14", mushroomName="False Truffle", Url="FalseTruffles.jpg" },
+                  new mushroom() {mushroomId="15", mushroomName="Truffle", Url="Truffles.jpg" },
+                  new mushroom() {mushroomId="16", mushroomName="Ascomycete", Url="FlaskFungi.jpg" },
+                  new mushroom() {mushroomId="17", mushroomName="Morel", Url="Morel_elfin_saddle_cup.jpg" },
+                  new mushroom() {mushroomId="18", mushroomName="Earth Tongue", Url="EarthTongues.jpg" }
                 };
             }
         }
@@ -55,7 +55,7 @@ namespace mushroomid
             mushroom tappedPost = (mushroom)((ListView)sender).SelectedItem;
             Console.WriteLine("---------------------");
             Console.WriteLine(tappedPost.mushroomId);
-            //await Navigation.PushAsync(new Page2(tappedPost.mushroomId));
+            await Navigation.PushAsync(new Page3(tappedPost.mushroomName));
         }
         protected override void OnAppearing()
         {
