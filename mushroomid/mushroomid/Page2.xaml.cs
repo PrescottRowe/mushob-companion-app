@@ -29,7 +29,7 @@ namespace mushroomid
 
                 var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
                 {
-                    Directory = "Test",
+                    Directory = "MushID",
                     SaveToAlbum = true,
                     CompressionQuality = 75,
                     CustomPhotoSize = 50,
@@ -40,15 +40,18 @@ namespace mushroomid
 
                 if (file == null)
                     return;
-
+                App.GlobalVariables.FilePath = file.Path;
                 DisplayAlert("File Location", file.Path, "OK");
-
+                Console.WriteLine(file.AlbumPath);
+                Console.WriteLine(file.Path);
                 image.Source = ImageSource.FromStream(() =>
                 {
                     var stream = file.GetStream();
                     file.Dispose();
                     return stream;
                 });
+                Console.WriteLine(image.Source);
+
             };
         }
         async void GoToNextPage(object sender, EventArgs e)
