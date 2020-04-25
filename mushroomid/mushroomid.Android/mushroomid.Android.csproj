@@ -97,7 +97,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\message.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\mushroomid\mushroomid.csproj">
       <Project>{32366650-9610-4D1A-98F8-867C983940BF}</Project>

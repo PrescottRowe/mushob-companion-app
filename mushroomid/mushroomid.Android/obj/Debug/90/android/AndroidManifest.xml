@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.mushroomid" android:installLocation="auto">
-  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="26" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.mushroomid" android:installLocation="preferExternal">
+  <uses-sdk android:minSdkVersion="17" android:targetSdkVersion="25" />
+  <uses-feature android:name="android.hardware.location.gps" />
+  <uses-feature android:name="android.hardware.location.network" />
   <uses-feature android:name="android.hardware.camera" android:required="false" />
   <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -9,16 +11,17 @@
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.CAMERA" />
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-  <application android:label="mushroomid.Android" android:name="android.app.Application" android:allowBackup="true" android:icon="@mipmap/icon" android:debuggable="true">
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+  <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+  <application android:label="mushroomid.Android" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
     <provider android:name="android.support.v4.content.FileProvider" android:authorities="com.companyname.mushroomid.fileprovider" android:exported="false" android:grantUriPermissions="true">
-      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
     </provider>
-    <activity android:configChanges="orientation|screenSize" android:icon="@mipmap/icon" android:label="mushroomid" android:theme="@style/MainTheme" android:name="crc649a719577288b3147.MainActivity">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
-    </activity>
+    <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyA74_1e9bkp5-ywYrsjrLrIET07ijownvY" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <uses-library android:name="org.apache.http.legacy" android:required="false" />
     <receiver android:enabled="true" android:exported="false" android:label="Connectivity Plugin Broadcast Receiver" android:name="crc64cea48322b3427ae9.ConnectivityChangeBroadcastReceiver" />
     <activity android:configChanges="orientation|screenSize|uiMode" android:name="crc646957603ea1820544.MediaPickerActivity" />
     <service android:name="crc64a98abb514ffad9f1.KeepAliveService" />
@@ -37,5 +40,7 @@
         <category android:name="mono.android.intent.category.SEPPUKU.com.companyname.mushroomid" />
       </intent-filter>
     </receiver>
+    <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <!-- Needs to be explicitly declared on P+ -->
   </application>
 </manifest>

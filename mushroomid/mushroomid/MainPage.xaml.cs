@@ -25,6 +25,10 @@ namespace mushroomid
         {
             await Navigation.PushAsync(new Page2());
         }
+        async void GoToMapPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MapPage());
+        }
     }
 
 }
