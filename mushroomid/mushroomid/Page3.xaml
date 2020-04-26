@@ -5,9 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="mushroomid.Page3"
-             >
+             Title="Add details"
+             BackgroundImageSource="WP5.jpg">
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView BackgroundColor="WhiteSmoke" Opacity=".95">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>

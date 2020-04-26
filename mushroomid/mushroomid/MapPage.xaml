@@ -5,7 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              mc:Ignorable="d"           
-             x:Class="mushroomid.MapPage">
+             x:Class="mushroomid.MapPage"
+             Title="My Collection"
+             BackgroundImageSource="WP5.jpg">
     <ContentPage.Content>
         <StackLayout>
             <maps:Map x:Name="map" WidthRequest="320" HeightRequest="320" IsShowingUser="True" MapType="Hybrid">

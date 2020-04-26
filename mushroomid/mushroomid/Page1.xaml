@@ -5,8 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="mushroomid.Page1"
-             Title="Mushroom ID Key"
-             BackgroundColor="Beige">
+             Title="Mushroom kingdoms"
+             BackgroundImageSource="WP5.jpg">
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="20">
             <ListView x:Name="ListViewList" IsPullToRefreshEnabled="True" RowHeight="145" ItemTapped="OnButtonClicked">
@@ -22,7 +22,7 @@
                                         <Image Source="{Binding Url}"
                                                Aspect="AspectFit" HeightRequest="125" WidthRequest="200" HorizontalOptions="Start" VerticalOptions="Center"/>
                                         <Label Text="{Binding mushroomName}"
-                                               HorizontalOptions="End" VerticalOptions="Center" FontSize="20" TextColor="CadetBlue"/>
+                                               HorizontalOptions="End" VerticalOptions="Center" FontSize="28" FontAttributes="Bold" TextColor="CadetBlue"/>
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell.View>
