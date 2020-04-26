@@ -36,6 +36,7 @@ namespace mushroomid
         
         async void Post_Clicked(object sender, EventArgs args)//first add image
         {
+            loadIndicator.IsRunning = true;
             byte[] photo = File.ReadAllBytes(App.GlobalVariables.FilePath);
             Console.WriteLine(photo);
             HttpWebRequest myReq = (HttpWebRequest)WebRequest.Create("https://mushroomobserver.org/api/images?api_key=qrtv9psezrciw4sjhj9va38ja9h0vi6x&format=json" 

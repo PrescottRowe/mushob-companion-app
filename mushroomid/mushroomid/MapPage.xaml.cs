@@ -25,11 +25,11 @@ namespace mushroomid
     public partial class MapPage : ContentPage
     {
         public IList<Observation> Observations { get; private set; }
+        public IList<Observation> PinLocations { get; private set; }
         HttpResponseMessage response;
         public MapPage()
         {
-            InitializeComponent();
-            MapLocator();
+            InitializeComponent();                    
         }
         public partial class Root
         {
@@ -70,10 +70,10 @@ namespace mushroomid
             public DateTimeOffset Date { get; set; }
 
             [JsonProperty("latitude")]
-            public string Latitude { get; set; }
+            public Double Latitude { get; set; }
 
             [JsonProperty("longitude")]
-            public string Longitude { get; set; }
+            public Double Longitude { get; set; }
 
             [JsonProperty("altitude")]
             public object Altitude { get; set; }
@@ -317,7 +317,7 @@ namespace mushroomid
             public long NumberOfViews { get; set; }
 
             [JsonProperty("last_viewed")]
-            public DateTimeOffset LastViewed { get; set; }
+            public string LastViewed { get; set; }
 
             [JsonProperty("ok_for_export")]
             public bool OkForExport { get; set; }
@@ -343,6 +343,7 @@ namespace mushroomid
             public string location { get; set; }
             public string date { get; set; }
             public string comments { get; set; }
+            public Position position { get; set; }
 
         }
         async void get_myObservations()
@@ -362,6 +363,7 @@ namespace mushroomid
                 Console.WriteLine(content);
                 rootData = JsonConvert.DeserializeObject<Root>(content);
                 Observations = new List<Observation>();
+                PinLocations = new List<Observation>();
                 for (int i = 0; i < rootData.Results.Length; i++)
                 {
                     Observations.Add(new Observation
@@ -372,19 +374,21 @@ namespace mushroomid
                         date = rootData.Results[i].Date.ToString(),
                         comments = rootData.Results[i].Comments.Length.ToString()
                     });
+                    PinLocations.Add(new Observation
+                    {
+                        mushroomName = rootData.Results[i].Consensus.Name,
+                        location = rootData.Results[i].LocationName,
+                        position = new Position(rootData.Results[i].Latitude, rootData.Results[i].Longitude)
+                    });
                 }
-
-                //int numberOfObservations = rootData.Results.Length;
-                //for(int i=0; i<5; i++)
-                //    Console.WriteLine(rootData.Results[i].Id);
+                ListViewList.ItemsSource = Observations;
+                map.ItemsSource = PinLocations;
             }
         }
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-            get_myObservations();
-            
-            ListViewList.ItemsSource = Observations;
+            MapLocator();
+            get_myObservations();           
         }
     }
 }

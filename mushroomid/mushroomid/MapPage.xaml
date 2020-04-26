@@ -8,8 +8,17 @@
              x:Class="mushroomid.MapPage">
     <ContentPage.Content>
         <StackLayout>
-            <maps:Map x:Name="map" WidthRequest="320" HeightRequest="320" IsShowingUser="True" MapType="Hybrid"/>
-            <ListView x:Name="ListViewList" IsPullToRefreshEnabled="True" RowHeight="100" >
+            <maps:Map x:Name="map" WidthRequest="320" HeightRequest="320" IsShowingUser="True" MapType="Hybrid">
+                <maps:Map.ItemTemplate>
+                    <DataTemplate>
+                        <maps:Pin Position="{Binding position}"
+                                  Address="{Binding location}"
+                                  Label="{Binding mushroomName}" 
+                                  Type="SavedPin"/>
+                    </DataTemplate>
+                </maps:Map.ItemTemplate>
+            </maps:Map>
+            <ListView x:Name="ListViewList" IsPullToRefreshEnabled="False" RowHeight="100" VerticalScrollBarVisibility="Default" SelectionMode="None" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -17,17 +26,17 @@
                                 <MenuItem Text="Observations"/>
                             </ViewCell.ContextActions>
                             <ViewCell.View>
-                                <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal" BackgroundColor="LightBlue">
                                     <StackLayout Orientation="Vertical">
-                                        <Label Text="{Binding mushroomName}" VerticalOptions="Start" HorizontalOptions="Center" FontSize="15" TextColor="CadetBlue"/>
+                                        <Label Text="{Binding mushroomName}" VerticalOptions="Start" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold" Padding="15,0,15,0" TextColor="Black"/>
                                         <Image Source="{Binding imageURL}" Aspect="AspectFit" HeightRequest="80" WidthRequest="80" HorizontalOptions="Center" VerticalOptions="Center"/>
                                     </StackLayout>
                                     <StackLayout Orientation="Vertical">
-                                        <Label Text="{Binding date}" FontSize="15" TextColor="CadetBlue" HorizontalOptions="Center" VerticalOptions="Start"/>
-                                        <Label Text="{Binding location}" FontSize="15" TextColor="CadetBlue" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                                        <Label Text="{Binding date}" FontSize="15" TextColor="Black" HorizontalOptions="End" VerticalOptions="Start"/>
+                                        <Label Text="{Binding location}" FontSize="18" TextColor="Black" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
                                     </StackLayout>
-                                    <Image Source="message.png" VerticalOptions="Center" HorizontalOptions="End"/>
-                                    <Label Text="{Binding comments}" VerticalOptions="Center" FontSize="15" TextColor="CadetBlue" HorizontalOptions="Start"/>
+                                    <Image Source="message.jpg" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HeightRequest="25"/>
+                                    <Label Text="{Binding comments}" VerticalOptions="Center" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Start" Padding="0,0,15,0"/>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>

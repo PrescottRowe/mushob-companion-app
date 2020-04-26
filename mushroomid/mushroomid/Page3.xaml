@@ -7,26 +7,45 @@
              x:Class="mushroomid.Page3"
              >
     <ContentPage.Content>
-        <Grid>
-            <Label Text="Cap Shape:" VerticalOptions="Center" Padding="15,0,0,0" Grid.Row="0" Grid.Column="0"/>
-            <Entry x:Name="Cap_Shape" Grid.ColumnSpan="2" FontSize="12" HorizontalOptions="CenterAndExpand" Placeholder="bell, conical, wavy, striate, upturned" Grid.Row="0" Grid.Column="1"/>
-            <Label Text="Cap Width:" VerticalOptions="Center" Padding="15,0,0,0"  Grid.Row="1" Grid.Column="0"/>
-            <Entry x:Name="Cap_Width" Grid.ColumnSpan="2" FontSize="12" HorizontalOptions="CenterAndExpand" Placeholder="------" Grid.Row="1" Grid.Column="1"/>
-            <Label Text="Cap/Stem Coloring:" VerticalOptions="Center" Padding="15,0,0,0" Grid.Row="2" Grid.Column="0"/>
-            <Entry x:Name="Cap_Stem_Coloring" Grid.ColumnSpan="2" FontSize="12" HorizontalOptions="CenterAndExpand" Placeholder="milky, sand, purple-brown, etc" Grid.Row="2" Grid.Column="1"/>
-            <Label Text="Spore Color:" VerticalOptions="Center" Padding="15,0,0,0" Grid.Row="3" Grid.Column="0"/>
-            <Entry x:Name="Spore_Color" Grid.ColumnSpan="2" FontSize="12" HorizontalOptions="CenterAndExpand" Placeholder="black, rusty, purple, buff, white" Grid.Row="3" Grid.Column="1"/>
-            <Label Text="Gills:" VerticalOptions="Center" Padding="15,0,0,0" Grid.Row="4" Grid.Column="0"/>
-            <Entry x:Name="Gills" Grid.ColumnSpan="2" FontSize="12" HorizontalOptions="CenterAndExpand" Placeholder="free, adnexed, sinuate, adnate, decurrent" Grid.Row="4" Grid.Column="1"/>
-            <Label Text="Stem Base:" VerticalOptions="Center" Padding="15,0,0,0" Grid.Row="5" Grid.Column="0"/>
-            <Entry x:Name="Stem_Base" Grid.ColumnSpan="2" FontSize="12" HorizontalOptions="CenterAndExpand" Placeholder="equal, club-shaped, bulbous, cup, rooting, rhizomorphs" Grid.Row="5" Grid.Column="1"/>
-            <Label Text="Veils:" VerticalOptions="Center" Padding="15,0,0,0" Grid.Row="6" Grid.Column="0"/>
-            <Entry x:Name="Veils" Grid.ColumnSpan="2" FontSize="12" HorizontalOptions="CenterAndExpand" Placeholder="pendant, flaring, sheathing, double, cobwebby, ring zone" Grid.Row="6" Grid.Column="1"/>
-            <Label Text="Other markers:" VerticalOptions="Center" Padding="15,0,0,0" Grid.Row="7" Grid.Column="0"/>
-            <Entry x:Name="Markers" Grid.ColumnSpan="2" FontSize="12" HorizontalOptions="CenterAndExpand" Placeholder="substrait, enviornment, smell, etc" Grid.Row="7" Grid.Column="1"/>
-            <Label Text="Texture:" VerticalOptions="Center" Padding="15,0,0,0" Grid.Row="8" Grid.Column="0"/>
-            <Entry x:Name="Texture" Grid.ColumnSpan="2" FontSize="12" HorizontalOptions="CenterAndExpand" Placeholder="woody, slimy, silky, delicate" Grid.Row="8" Grid.Column="1"/>
-            <Button Text="Post" Grid.Row="9" Grid.ColumnSpan="3" Clicked="Post_Clicked" />
-        </Grid>
+        <ScrollView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <ActivityIndicator x:Name="loadIndicator" IsRunning="False" Color="CornflowerBlue" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Row="2"/>
+
+                <Label Text="Cap Shape:" VerticalOptions="Center" FontSize="20" Padding="15,0,0,0" Grid.Row="0" Grid.Column="0" BackgroundColor="LightBlue"/>
+                <Entry x:Name="Cap_Shape" Grid.ColumnSpan="2" FontSize="16" Placeholder="bell, conical, wavy, striate, upturned" Grid.Row="0" Grid.Column="1" ClearButtonVisibility="WhileEditing" IsTextPredictionEnabled="True" Keyboard="Text" ReturnType="Next" />
+
+                <Label Text="Cap Width:" VerticalOptions="Center" FontSize="20" Padding="15,0,0,0"  Grid.Row="1" Grid.Column="0" BackgroundColor="LightBlue"/>
+                <Entry x:Name="Cap_Width" Grid.ColumnSpan="2" FontSize="16" Placeholder="ex:  3in" Grid.Row="1" Grid.Column="1" ClearButtonVisibility="WhileEditing" IsTextPredictionEnabled="True" Keyboard="Text" ReturnType="Next"/>
+
+                <Label Text="Cap/Stem Coloring:" VerticalOptions="Center" FontSize="20" Padding="15,0,0,0" Grid.Row="2" Grid.Column="0" BackgroundColor="LightBlue"/>
+                <Entry x:Name="Cap_Stem_Coloring" Grid.ColumnSpan="2" FontSize="16"  Placeholder="milky, sand, purple-brown, etc" Grid.Row="2" Grid.Column="1" ClearButtonVisibility="WhileEditing" IsTextPredictionEnabled="True" Keyboard="Text" ReturnType="Next"/>
+
+                <Label Text="Spore Color:" VerticalOptions="Center" FontSize="20" Padding="15,0,0,0" Grid.Row="3" Grid.Column="0" BackgroundColor="LightBlue"/>
+                <Entry x:Name="Spore_Color" Grid.ColumnSpan="2" FontSize="16" Placeholder="black, rusty, purple, buff, white" Grid.Row="3" Grid.Column="1" ClearButtonVisibility="WhileEditing" IsTextPredictionEnabled="True" Keyboard="Text" ReturnType="Next"/>
+
+                <Label Text="Gills:" VerticalOptions="Center" FontSize="20" Padding="15,0,0,0" Grid.Row="4" Grid.Column="0" BackgroundColor="LightBlue"/>
+                <Entry x:Name="Gills" Grid.ColumnSpan="2" FontSize="16" Placeholder="free, adnexed, sinuate, adnate, decurrent" Grid.Row="4" Grid.Column="1" ClearButtonVisibility="WhileEditing" IsTextPredictionEnabled="True" Keyboard="Text" ReturnType="Next"/>
+
+                <Label Text="Stem Base:" VerticalOptions="Center" FontSize="20" Padding="15,0,0,0" Grid.Row="5" Grid.Column="0" BackgroundColor="LightBlue"/>
+                <Entry x:Name="Stem_Base" Grid.ColumnSpan="2" FontSize="16" Placeholder="equal, club-shaped, bulbous, cup, rooting, rhizomorphs" Grid.Row="5" Grid.Column="1" ClearButtonVisibility="WhileEditing" IsTextPredictionEnabled="True" Keyboard="Text" ReturnType="Next"/>
+
+                <Label Text="Veils:" VerticalOptions="Center" FontSize="20" Padding="15,0,0,0" Grid.Row="6" Grid.Column="0" BackgroundColor="LightBlue"/>
+                <Entry x:Name="Veils" Grid.ColumnSpan="2" FontSize="16" Placeholder="pendant, flaring, sheathing, double, cobwebby, ring zone" Grid.Row="6" Grid.Column="1" ClearButtonVisibility="WhileEditing" IsTextPredictionEnabled="True" Keyboard="Text" ReturnType="Next"/>
+
+                <Label Text="Other markers:" VerticalOptions="Center" FontSize="20" Padding="15,0,0,0" Grid.Row="7" Grid.Column="0" BackgroundColor="LightBlue"/>
+                <Entry x:Name="Markers" Grid.ColumnSpan="2" FontSize="16" Placeholder="substrait, enviornment, smell, etc" Grid.Row="7" Grid.Column="1" ClearButtonVisibility="WhileEditing" IsTextPredictionEnabled="True" Keyboard="Text" ReturnType="Next"/>
+
+                <Label Text="Texture:" VerticalOptions="Center" FontSize="20" Padding="15,0,0,0" Grid.Row="8" Grid.Column="0" BackgroundColor="LightBlue"/>
+                <Entry x:Name="Texture" Grid.ColumnSpan="2" FontSize="16" Placeholder="woody, slimy, silky, delicate" Grid.Row="8" Grid.Column="1" ClearButtonVisibility="WhileEditing" IsTextPredictionEnabled="True" Keyboard="Text" ReturnType="Send"/>
+
+                <Button Text="Post" Grid.Row="9" Grid.ColumnSpan="3" Clicked="Post_Clicked" />
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

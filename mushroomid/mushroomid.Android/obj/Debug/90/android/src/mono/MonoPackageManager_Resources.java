@@ -2,6 +2,7 @@ package mono;
 public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "mushroomid.Android.dll" comes first in this list. */
+		"mushroomid.Android.dll",
 		"FormsViewGroup.dll",
 		"mushroomid.dll",
 		"Newtonsoft.Json.dll",

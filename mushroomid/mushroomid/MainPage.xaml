@@ -10,12 +10,10 @@
 
     <ContentPage.Content>
         <Grid BackgroundColor="Gray">
-            <Button Text="ID" Clicked="GoToPage2" Grid.Row="0" Grid.Column="0" />
-            <Button Text="My Mushrooms" Clicked="GoToMapPage" Grid.Row="0" Grid.Column="1"/>
-            <Button Text="Directory"  Grid.Row="1" Grid.Column="0"/>
-            <Button Text="Forum"  Grid.Row="1" Grid.Column="1"/>
-            <Button Text="Help" Grid.Row="2" Grid.Column="0"/>
-            <Button Text="?" Grid.Row="2" Grid.Column="1" />
+            <Button Text="ID" Clicked="GoToPage2" Grid.Row="0" Grid.Column="0" BorderColor="WhiteSmoke" BorderWidth="3" BackgroundColor="LightBlue" CornerRadius="20" FontSize="20" FontAttributes="Bold" Margin="5"/>
+            <Button Text="My Mushrooms" Clicked="GoToMapPage" Grid.Row="0" Grid.Column="1" BorderColor="WhiteSmoke" BorderWidth="3" BackgroundColor="LightBlue" CornerRadius="20" FontSize="20" FontAttributes="Bold" Margin="5"/>
+            <Button Text="Learn"  Grid.Row="1" Grid.Column="0" BorderColor="WhiteSmoke" BorderWidth="3" BackgroundColor="LightBlue" CornerRadius="20" FontSize="20" FontAttributes="Bold" Margin="5" />
+            <Button Text="Community"  Grid.Row="1" Grid.Column="1" BorderColor="WhiteSmoke" BorderWidth="3" BackgroundColor="LightBlue" CornerRadius="20" FontSize="20" FontAttributes="Bold" Margin="5"/>
         </Grid>
     </ContentPage.Content>
 

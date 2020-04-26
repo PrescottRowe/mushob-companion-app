@@ -597,3 +597,4 @@ C:\Users\presc\source\repos\mushroomid\mushroomid\mushroomid.Android\obj\Debug\9
 C:\Users\presc\source\repos\mushroomid\mushroomid\mushroomid.Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\presc\source\repos\mushroomid\mushroomid\mushroomid.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
 C:\Users\presc\source\repos\mushroomid\mushroomid\mushroomid.Android\obj\Debug\90\res\drawable\message.png
+C:\Users\presc\source\repos\mushroomid\mushroomid\mushroomid.Android\obj\Debug\90\res\drawable\message.jpg

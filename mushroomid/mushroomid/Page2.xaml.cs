@@ -42,8 +42,7 @@ namespace mushroomid
                     return;
                 App.GlobalVariables.FilePath = file.Path;
                 DisplayAlert("File Location", file.Path, "OK");
-                Console.WriteLine(file.AlbumPath);
-                Console.WriteLine(file.Path);
+                next.IsEnabled = true;
                 image.Source = ImageSource.FromStream(() =>
                 {
                     var stream = file.GetStream();
@@ -52,6 +51,32 @@ namespace mushroomid
                 });
                 Console.WriteLine(image.Source);
 
+            };
+
+            pickPhoto.Clicked += async (sender, args) =>
+            {
+                if (!CrossMedia.Current.IsPickPhotoSupported)
+                {
+                    DisplayAlert("Photos Not Supported", ":( Permission not granted to photos.", "OK");
+                    return;
+                }
+                var file = await Plugin.Media.CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
+                {
+                    PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium,
+
+                });
+
+
+                if (file == null)
+                    return;
+                App.GlobalVariables.FilePath = file.Path;
+                next.IsEnabled = true;
+                image.Source = ImageSource.FromStream(() =>
+                {
+                    var stream = file.GetStream();
+                    file.Dispose();
+                    return stream;
+                });
             };
         }
         async void GoToNextPage(object sender, EventArgs e)
