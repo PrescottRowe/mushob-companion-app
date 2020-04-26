@@ -2500,11 +2500,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\presc\\source\\repos\\mushroomid\\mushroomid\\mushroomid.Android\\mushroomid.Android.csproj",
+      "projectUniqueName": "C:\\Users\\presc\\source\\repos\\MushroomID\\mushroomid\\mushroomid.Android\\mushroomid.Android.csproj",
       "projectName": "mushroomid.Android",
-      "projectPath": "C:\\Users\\presc\\source\\repos\\mushroomid\\mushroomid\\mushroomid.Android\\mushroomid.Android.csproj",
+      "projectPath": "C:\\Users\\presc\\source\\repos\\MushroomID\\mushroomid\\mushroomid.Android\\mushroomid.Android.csproj",
       "packagesPath": "C:\\Users\\presc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\presc\\source\\repos\\mushroomid\\mushroomid\\mushroomid.Android\\obj\\",
+      "outputPath": "C:\\Users\\presc\\source\\repos\\MushroomID\\mushroomid\\mushroomid.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2525,8 +2525,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\presc\\source\\repos\\mushroomid\\mushroomid\\mushroomid\\mushroomid.csproj": {
-              "projectPath": "C:\\Users\\presc\\source\\repos\\mushroomid\\mushroomid\\mushroomid\\mushroomid.csproj"
+            "C:\\Users\\presc\\source\\repos\\MushroomID\\mushroomid\\mushroomid\\mushroomid.csproj": {
+              "projectPath": "C:\\Users\\presc\\source\\repos\\MushroomID\\mushroomid\\mushroomid\\mushroomid.csproj"
             }
           }
         }
