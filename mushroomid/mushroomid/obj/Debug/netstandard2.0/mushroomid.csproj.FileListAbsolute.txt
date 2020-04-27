@@ -15,3 +15,5 @@ C:\Users\presc\source\repos\mushroomid\mushroomid\mushroomid\obj\Debug\netstanda
 C:\Users\presc\source\repos\mushroomid\mushroomid\mushroomid\obj\Debug\netstandard2.0\ref\mushroomid.dll
 C:\Users\presc\source\repos\mushroomid\mushroomid\mushroomid\obj\Debug\netstandard2.0\mushroomid.pdb
 C:\Users\presc\source\repos\mushroomid\mushroomid\mushroomid\obj\Debug\netstandard2.0\mushroomid.csprojAssemblyReference.cache
+C:\Users\presc\source\repos\MushroomID\mushroomid\mushroomid\obj\Debug\netstandard2.0\Help.xaml.g.cs
+C:\Users\presc\source\repos\MushroomID\mushroomid\mushroomid\obj\Debug\netstandard2.0\WebPage.xaml.g.cs

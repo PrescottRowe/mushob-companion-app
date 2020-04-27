@@ -17,9 +17,9 @@ namespace mushroomid
         {
             InitializeComponent();
         }
-        async void GoToPage1(object sender, EventArgs e)
+        async void GoToWebPage(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Page1());
+            await Navigation.PushAsync(new WebPage());
         }
         async void GoToPage2(object sender, EventArgs e)
         {
@@ -28,6 +28,10 @@ namespace mushroomid
         async void GoToMapPage(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MapPage());
+        }
+        async void GoToHelpPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Help());
         }
     }
 

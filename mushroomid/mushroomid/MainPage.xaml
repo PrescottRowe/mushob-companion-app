@@ -12,12 +12,12 @@
         <Grid>
             <ImageButton Source="search1.png" Scale=".5" BackgroundColor="Transparent" IsEnabled="True" Clicked="GoToPage2"  Grid.Row="0" Grid.Column="0" Margin="5"/>
             <ImageButton Source="map5.png" Scale=".5" BackgroundColor="Transparent" IsEnabled="True" Clicked="GoToMapPage" Grid.Row="0" Grid.Column="1" Margin="5"/>
-            <ImageButton Source="help4.png" Scale=".5" BackgroundColor="Transparent" IsEnabled="True" Grid.Row="1" Grid.Column="0" Margin="5"/>
-            <ImageButton Source="web1.png" Scale=".5" BackgroundColor="Transparent" IsEnabled="True"  Grid.Row="1" Grid.Column="1" Margin="5"/>
-            <Label Text="ID a Fungi"  Grid.Row="0" Grid.Column="0" Margin="5" FontSize="20" TextColor="White" FontAttributes="Bold" VerticalOptions="End" HorizontalOptions="Center"/>
-            <Label Text="My Fungi" Grid.Row="0" Grid.Column="1" Margin="5" FontSize="20" TextColor="White" FontAttributes="Bold" VerticalOptions="End" HorizontalOptions="Center"/>
-            <Label Text="Help" Grid.Row="1" Grid.Column="0" Margin="5" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="End" HorizontalOptions="Center"/>
-            <Label Text="Community" Grid.Row="1" Grid.Column="1" Margin="5" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="End" HorizontalOptions="Center"/>
+            <ImageButton Source="help4.png" Scale=".5" BackgroundColor="Transparent" IsEnabled="True" Clicked="GoToHelpPage" Grid.Row="1" Grid.Column="0" Margin="5"/>
+            <ImageButton Source="web1.png" Scale=".5" BackgroundColor="Transparent" IsEnabled="True" Clicked="GoToWebPage" Grid.Row="1" Grid.Column="1" Margin="5"/>
+            <Label Text="ID a Fungi"  Grid.Row="0" Grid.Column="0" Margin="5" FontSize="20" TextColor="White" FontAttributes="Bold" VerticalOptions="EndAndExpand" HorizontalOptions="Center"/>
+            <Label Text="My Fungi" Grid.Row="0" Grid.Column="1" Margin="5" FontSize="20" TextColor="White" FontAttributes="Bold" VerticalOptions="EndAndExpand" HorizontalOptions="Center"/>
+            <Label Text="Help" Grid.Row="1" Grid.Column="0" Margin="5" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="EndAndExpand" HorizontalOptions="Center"/>
+            <Label Text="Community" Grid.Row="1" Grid.Column="1" Margin="5" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="EndAndExpand" HorizontalOptions="Center"/>
         </Grid>
     </ContentPage.Content>
 
