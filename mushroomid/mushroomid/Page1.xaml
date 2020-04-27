@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="mushroomid.Page1"
-             Title="Mushroom kingdoms"
+             Title="Mushroom Family"
              BackgroundImageSource="WP5.jpg">
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="20">

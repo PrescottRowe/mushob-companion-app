@@ -5,26 +5,34 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="mushroomid.Help"
+             Title="LEARN"
              BackgroundImageSource="WP4.jpg">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="15,15">
-                <Label FontSize="30" FontAttributes="Bold"
-                    Text="Page Descriptions:"/>
-                <Label Text="-ID:   Take a phot and post it to the forums to get help Identifying your mushrooms."/>
-                <Label Text="-Mushrooms:   Gota catch 'em all and this is where you can track them."/>
-                <Label Text="-Community:   Look at the community wall to see what others have been finding."/>
-                <Label Text="-Help:   Below you can learn the basics about identification tricks and get a head start on your journey to the discovery of the fungal world."/>
-                <Label Text="Mushrooms 101" Padding="0,15" FontSize="20" HorizontalOptions="Center"/>
+            <StackLayout Padding="15,15" BackgroundColor="White" Opacity=".8">
+                <StackLayout.Resources>
+                    <!-- Implicit style -->
+                    <Style TargetType="Label">
+                        <Setter Property="FontSize" Value="20" />
+                        <Setter Property="TextColor" Value="Black" />
+                    </Style>
+                </StackLayout.Resources>
+                <Label FontSize="34" FontAttributes="Bold"
+                    Text="Page Descriptions:" TextColor="Black"/>
+                <Label Text="-ID:   Take a phot and post it to the forums to get help Identifying your mushrooms." FontSize="24" FontAttributes="Italic"/>
+                <Label Text="-Mushrooms:   Gota catch 'em all and this is where you can track them." FontSize="24" FontAttributes="Italic"/>
+                <Label Text="-Community:   Look at the community wall to see what others have been finding." FontSize="24" FontAttributes="Italic"/>
+                <Label Text="-Help:   Below you can learn the basics about identification tricks and get a head start on your journey to the discovery of the fungal world." FontSize="24" FontAttributes="Italic"/>
+                <Label Text="Mushrooms 101" Padding="0,15" FontSize="28" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center"/>
                 <Label 
-                    Text="Lets get you started of with a quick overview of the anatomy of the most common type of fruiting body. "/>
+                    Text="Lets get you started of with a quick overview of the anatomy of the most common type of fruiting body. " TextColor="Black"/>
                 <Image Source="Anatomy.jpg" HorizontalOptions="Center"/>
                 <Label 
                     Text="Now the first thing you will automatically notice when finding a mushroom will be the color and the cap. There are several things to take note of when we are looking at the cap of a mushroom most important are the overall dome of the cap and the edge texture. Also looking at mushrooms of different age can help determine the adults from the younger bodies that have not yet formed."/>
                 <Image Source="Caps.jpg" HorizontalOptions="Center"/>
                 <Image Source="Caps3.jpg" HorizontalOptions="Center"/>
-                
-                <Label Text="Mushrooms 102" Padding="0,15" FontSize="20" HorizontalOptions="Center"/>
+
+                <Label Text="Mushrooms 102" Padding="0,15" FontSize="28" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center"/>
                 <Label 
                     Text="Now if you are ever going to consider eating a mushroom (and you probably should for the first year) you are going to need to consider the stalks and spore color of the fungi. When investigating the stalk it is important to pull up the mushroom with some dirt or substrate still attached and then gently brush off the substrate. This is so we can get a true impression of what the base shape/root system is. 
     Don't be afraid to damage the plant while doing this. It is much like pulling an apple off of a tree except instead when you pull this apple you are shooting millions of spores helping the species. A laugh at the people who kick over mushrooms as a way to weed them out. 
@@ -36,7 +44,7 @@
     -If doing IDs in the field you can typically find the spores have dusted the immediate area. They can be found on the stem, ring, leaves, grass, or sometimes right on the cap of another small mushroom underneath if clustered. This can be a quick and dirty tool to get an idea of the spore color but should be used as a guestimation. The spores can look different when on top of the various colors and dustings may be from other sources. 
     -The tried and true method is to pick the mushroom and take it home in a paper bag. This will let it breath and allow you to do a spore print in a controlled environment. To spore print you will cut/or pull of the step (another identifying feature) and place the cap gills side down on aluminum foil. If dried out you can drip a single drop of water on the cap and then cover with a dish. Then in 3-24 hours you can gently lift the cap and reveal the color of the spore print. The reason for the aluminum foil is because now if you want to save the spores it is easy to fold up the foil for later use. When posting about the color now is not the time to be shy about your vocabulary. The wordier you are with your descriptions the better. Colors are not definite in nature and the difference between white, eggshell, buff, and smoke can mean a lot. Plus, your wife will be impressed the next time you pick out paint. 
     "/>
-                <Label Text="Mushrooms 103" Padding="0,15" FontSize="20" HorizontalOptions="Center"/>
+                <Label Text="Mushrooms 103" Padding="0,15" FontSize="28" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center"/>
                 <Label 
                     Text="This is where I have to reveal that mushroom IDing is not as easy as a walk in the park. Often times we can guess the right species or close to it. You may even learn all the identifying markers for an exact species and learn to ID them within a few minutes. But if you ever plan to make a mushroom stew you need a microscope. 
     Entire books have been written that don't even entirely cover the subject. However to get you started and understanding the things that get looked at, I have posted some areas of visual interest.
