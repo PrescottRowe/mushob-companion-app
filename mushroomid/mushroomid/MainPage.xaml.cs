@@ -15,7 +15,7 @@ namespace mushroomid
         }
         async void GoToWebPage(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new WebPage());
+            await Navigation.PushAsync(new WebPage());//community wall
         }
         async void GoToPage2(object sender, EventArgs e)
         {
@@ -23,11 +23,11 @@ namespace mushroomid
         }
         async void GoToMapPage(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MapPage());
+            await Navigation.PushAsync(new MapPage());//shows user subbed mushrooms
         }
         async void GoToHelpPage(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Help());
+            await Navigation.PushAsync(new Help());//help/learn for the user
         }
     }
 

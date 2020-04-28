@@ -28,25 +28,13 @@
                 HeightRequest="300"
                 BackgroundColor="#F0F0F0"/>
             <Button
-                x:Name="takePhoto"
-                Text="Take Photo"
-                BackgroundColor="CadetBlue"
-                HeightRequest="50"
-                Grid.Row="2" Grid.Column="0"/>
-            <Button
-                x:Name="pickPhoto"
-                Text="Pick Photo"
-                BackgroundColor="CadetBlue"
-                HeightRequest="50"
-                Grid.Row="2" Grid.Column="1"/>
-            <Button
                 x:Name="next"
                 Text="Next"
                 IsEnabled="False"
                 Clicked="GoToNextPage"
                 BackgroundColor="CadetBlue"
                 HeightRequest="50"
-                Grid.Row="3" Grid.ColumnSpan="2"/>
+                Grid.Row="2" Grid.ColumnSpan="2"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
