@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,12 +8,12 @@ namespace mushroomid
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Page1 : ContentPage
     {
-        public List<mushroom> Allmushrooms { get; set; }
-        public Page1()
+        public List<mushroom> Allmushrooms { get; set; }//list view object
+        public Page1()// page is used to help user figure out the major family of the mushroom
         {
             InitializeComponent();
         }
-        public class mushroom
+        public class mushroom //list view object
         {
             public string mushroomId { get; set; }
             public string mushroomName { get; set; }
@@ -27,7 +23,7 @@ namespace mushroomid
         {
             public static IEnumerable<mushroom> Get()
             {
-                return new List<mushroom>
+                return new List<mushroom>//currently mushroomID is not in use but i want to keep this here for when i add questions to help users figure out the family later. then the ids will be used as a sort of leaf node in final questioning. 
                 {
                   new mushroom() {mushroomId="1", mushroomName="Agarics", Url="Agarics.jpg"},
                   new mushroom() {mushroomId="2", mushroomName="Chanterelle", Url="Chanterelles.jpg" },
@@ -55,13 +51,13 @@ namespace mushroomid
             mushroom tappedPost = (mushroom)((ListView)sender).SelectedItem;
             Console.WriteLine("---------------------");
             Console.WriteLine(tappedPost.mushroomId);
-            await Navigation.PushAsync(new Page3(tappedPost.mushroomName));
+            await Navigation.PushAsync(new Page3(tappedPost.mushroomName));//uses the display name to pass to the 
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
             Allmushrooms = new List<mushroom>(mushrooms.Get());
-            ListViewList.ItemsSource = Allmushrooms;
+            ListViewList.ItemsSource = Allmushrooms;//populate list view
         }
     }
 }

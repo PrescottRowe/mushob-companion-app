@@ -1,30 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Newtonsoft;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using Xamarin.Essentials;
-using Plugin.Connectivity;
-using Plugin.Connectivity.Abstractions;
-using Plugin.Media;
-using Plugin.Media.Abstractions;
 using System.IO;
 using Plugin.Geolocator;
-using Xamarin.Forms.Maps;
 
 namespace mushroomid
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Page3 : ContentPage
-    {
+    {//Page is used to post details about the mushroom found
         String mushroomName;
 
         public Page3(String s)
@@ -34,21 +24,20 @@ namespace mushroomid
             
         }
         
-        async void Post_Clicked(object sender, EventArgs args)//first add image
+        async void Post_Clicked(object sender, EventArgs args)//POSTs an image then is followed by the POST for the observation. Currently the API is broken for named locations and Image post in the observation dir.
         {
-            loadIndicator.IsRunning = true;
-            byte[] photo = File.ReadAllBytes(App.GlobalVariables.FilePath);
-            Console.WriteLine(photo);
+            loadIndicator.IsRunning = true;//used to show the user clicked the button and now the post is working. Gets shut off at exit. 
+            byte[] photo = File.ReadAllBytes(App.GlobalVariables.FilePath);//file path will have been writen on page 1 and now we are turning it into a data stream for the api POST
             HttpWebRequest myReq = (HttpWebRequest)WebRequest.Create("https://mushroomobserver.org/api/images?api_key=qrtv9psezrciw4sjhj9va38ja9h0vi6x&format=json" 
                     + $"&notes=" + $"Name: " + mushroomName + $",  Cap_Shape:" + Cap_Shape.Text + $",  Cap_Width:" + Cap_Width.Text + $",  Cap_Stem_Coloring:" + Cap_Stem_Coloring.Text +
                     $",  Spore_Color:" + Spore_Color.Text + $",  Gills:" + Gills.Text + $",  Stem_Base:" + Stem_Base.Text + $",  Veil:" + Veils.Text
-                    + $",  Other_Markers:" + Markers.Text + $",  Texture:" + Texture.Text);
+                    + $",  Other_Markers:" + Markers.Text + $",  Texture:" + Texture.Text);//POST URI with the notes appened. Notes are pulled from entry fields. 
             myReq.Method = "POST";
-            myReq.ContentType = "image/jpeg";
-            myReq.ContentLength = photo.Length;
+            myReq.ContentType = "image/jpeg";//specified by api to add this to the header
+            myReq.ContentLength = photo.Length;//need to add termination size to header
 
-            Stream newStream = myReq.GetRequestStream();
-            newStream.Write(photo, 0, photo.Length);
+            Stream newStream = myReq.GetRequestStream();//we have to add the photo as raw data binary data to the body
+            newStream.Write(photo, 0, photo.Length);//writes the stream
             // Close the Stream object.
             newStream.Close();
             WebResponse response = myReq.GetResponse();
@@ -68,21 +57,21 @@ namespace mushroomid
             // Close the response.
             response.Close();
 
-            App.ImagePost imageData = null;
-            imageData = JsonConvert.DeserializeObject<App.ImagePost>(responseFromServer);//converts to .net object     
+            App.ImagePost imageData = null;//shows the user the image taken/selected
+            imageData = JsonConvert.DeserializeObject<App.ImagePost>(responseFromServer);//converts to .net object, we now have the location of the posted image     
             //start writing data to xaml bindings
             Console.WriteLine("---------------------r4-----------------------");
-            Create_Observation(imageData.Results[0].ToString());
-            //Create_Observation("1172859");
+            Create_Observation(imageData.Results[0].ToString());//call the next method to post with the image url and the new observation
+            //Create_Observation("1172859");//testing
         }
-        async void Create_Observation(String imageNum)
+        async void Create_Observation(String imageNum)//create a post on the database with the mushroom notes and photo
         {
-            var locator = CrossGeolocator.Current;
+            var locator = CrossGeolocator.Current;//get user current location for the post location
             TimeSpan ts = TimeSpan.FromTicks(10000);
             var position = await locator.GetPositionAsync(ts);
             var placemarks = await Geocoding.GetPlacemarksAsync(position.Latitude, position.Longitude);
             Console.WriteLine("---------------------r5-----------------------");
-            var placemark = placemarks?.FirstOrDefault();
+            var placemark = placemarks?.FirstOrDefault();// location nameing is broken in the api and needs to be suplimented with a geocoded lookup
             if (placemark != null)
             {
                 var geocodeAddress =
@@ -117,7 +106,7 @@ namespace mushroomid
                 Console.WriteLine("--------------------------3 json----------------------");
                 Console.WriteLine(response);//print json to console for debugging and development
             }
-            await Navigation.PopToRootAsync();
+            await Navigation.PopToRootAsync();// post worked, lets dip
         }
     }
 }

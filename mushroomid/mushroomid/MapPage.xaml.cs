@@ -1,22 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Plugin.Geolocator;
 using Xamarin.Forms.Maps;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
-using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using Xamarin.Essentials;
-using System.Globalization;
+
 
 
 namespace mushroomid
@@ -24,8 +15,8 @@ namespace mushroomid
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MapPage : ContentPage
     {
-        public IList<Observation> Observations { get; private set; }
-        public IList<Observation> PinLocations { get; private set; }
+        public IList<Observation> Observations { get; private set; } //fills the list under the map with the users mushroom observations
+        public IList<Observation> PinLocations { get; private set; } //fills the map with pins that match the users mushroom observations
         HttpResponseMessage response;
         public MapPage()
         {
@@ -56,7 +47,7 @@ namespace mushroomid
 
             [JsonProperty("run_time")]
             public double RunTime { get; set; }
-        }
+        } //Root is the base level meta data of the json.
 
         public partial class Result
         {
@@ -134,7 +125,7 @@ namespace mushroomid
 
             [JsonProperty("comments")]
             public object[] Comments { get; set; }
-        }
+        }//result is the container that houses the rest of the categories below. 
 
         public partial class Consensus
         {
@@ -285,7 +276,7 @@ namespace mushroomid
 
             [JsonProperty("image_id")]
             public object ImageId { get; set; }
-        }
+        }//owner info unrealted to the observations
 
         public partial class PrimaryImage
         {
@@ -327,68 +318,68 @@ namespace mushroomid
 
             [JsonProperty("owner_id")]
             public long OwnerId { get; set; }
-        }
+        }//this is the display image of the post and in our case it is the one we post first and then link to for our observation
 
-        async void MapLocator()
+        async void MapLocator() //map locator was used to make the my mushrooms page map navigate automatically to the users current location instead of defaulting to rome.
         {
             var locator = CrossGeolocator.Current;
-            TimeSpan ts = TimeSpan.FromTicks(100000);
-            var position = await locator.GetPositionAsync(ts);
-            map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), Distance.FromMiles(1)));
+            TimeSpan ts = TimeSpan.FromTicks(100000);//get possition requires a Time object so passing it a 1 second object
+            var position = await locator.GetPositionAsync(ts);//gets geo cords
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), Distance.FromMiles(1)));//sends geo cords and tells map to move to the location
         }
-        public class Observation
+        public class Observation//this is all the data that a users observation will have in the listview
         {
-            public string mushroomName { get; set; }
-            public string imageURL { get; set; }
-            public string location { get; set; }
-            public string date { get; set; }
-            public string comments { get; set; }
-            public Position position { get; set; }
+            public string mushroomName { get; set; }//given name
+            public string imageURL { get; set; }//primary image
+            public string location { get; set; }// city photo was taken pulled from upload location(cannot always pull from meta data)
+            public string date { get; set; }//date uploaded
+            public string comments { get; set; }//other users can comment so this is just a number of comments
+            public Position position { get; set; } //geo cords for map pins
 
         }
-        async void get_myObservations()
+        async void get_myObservations() //GET user observations, decided to mostly use web storage for syncing reasons although will still save original copys of the pictures localy
         {
             HttpClient client = new HttpClient();
-            var uri = new Uri(string.Format($"https://mushroomobserver.org/api/observations?user=35629&detail=high&format=json"));
+            var uri = new Uri(string.Format($"https://mushroomobserver.org/api/observations?user=35629&detail=high&format=json"));//base api link, high detail
             var request = new HttpRequestMessage();//generating the request
-            request.Method = HttpMethod.Get; //get data
+            request.Method = HttpMethod.Get; //GET
             request.RequestUri = uri; //add the uri we built earlier
             response = await client.SendAsync(request);//send the request and store the JSON response
-            Console.WriteLine("--------------------------MAP1----------------------");
-            Root rootData = null;
+            Console.WriteLine("--------------------------MAP req built----------------------");
+            Root rootData = null; //used to populate lists
             if (response.IsSuccessStatusCode)//if 200
             {
-                Console.WriteLine("--------------------------MAP2----------------------");
+                Console.WriteLine("--------------------------MAP 200'ed----------------------");
                 var content = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(content);
-                rootData = JsonConvert.DeserializeObject<Root>(content);
-                Observations = new List<Observation>();
-                PinLocations = new List<Observation>();
-                for (int i = 0; i < rootData.Results.Length; i++)
+                rootData = JsonConvert.DeserializeObject<Root>(content);//parse json
+                Observations = new List<Observation>();//used to populate list view
+                PinLocations = new List<Observation>();//used to populate pins on map
+                for (int i = 0; i < rootData.Results.Length; i++)//there can be any number of post by the user and they will all be in the json so we need to enum the results array
                 {
                     Observations.Add(new Observation
                     {
                         mushroomName = rootData.Results[i].Consensus.Name,
-                        imageURL = "https://images.mushroomobserver.org/orig/" + rootData.Results[i].PrimaryImage.Id.ToString() + ".jpg",
+                        imageURL = "https://images.mushroomobserver.org/orig/" + rootData.Results[i].PrimaryImage.Id.ToString() + ".jpg",//pulling image remotely, could also be pulled localy in retrospect
                         location = rootData.Results[i].LocationName,
                         date = rootData.Results[i].Date.ToString(),
                         comments = rootData.Results[i].Comments.Length.ToString()
                     });
                     PinLocations.Add(new Observation
                     {
-                        mushroomName = rootData.Results[i].Consensus.Name,
+                        mushroomName = rootData.Results[i].Consensus.Name,//when you hover or click a pin it dispays the mushroom name and city name 
                         location = rootData.Results[i].LocationName,
                         position = new Position(rootData.Results[i].Latitude, rootData.Results[i].Longitude)
                     });
                 }
-                ListViewList.ItemsSource = Observations;
-                map.ItemsSource = PinLocations;
+                ListViewList.ItemsSource = Observations;//populate gui
+                map.ItemsSource = PinLocations;//populate gui
             }
         }
         protected override void OnAppearing()
         {
-            MapLocator();
-            get_myObservations();           
+            MapLocator();//move map to current location
+            get_myObservations();    //populate the list view with user observations       
         }
     }
 }

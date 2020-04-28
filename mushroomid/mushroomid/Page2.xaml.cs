@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
-using Xamarin.Essentials;
 
 namespace mushroomid
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Page2 : ContentPage
     {
-        public Page2()
+        public Page2()// this page is used to take photos or select old photos, shores all photos to MushID album
         {
             InitializeComponent();
 
@@ -28,7 +22,7 @@ namespace mushroomid
                 }
 
                 var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
-                {
+                {//this holds photo capture and storage options
                     Directory = "MushID",
                     SaveToAlbum = true,
                     CompressionQuality = 75,
@@ -40,9 +34,9 @@ namespace mushroomid
 
                 if (file == null)
                     return;
-                App.GlobalVariables.FilePath = file.Path;
+                App.GlobalVariables.FilePath = file.Path;//sets file path for reference by other pages
                 DisplayAlert("File Location", file.Path, "OK");
-                next.IsEnabled = true;
+                next.IsEnabled = true;//force a photo selection or capture before continueing
                 image.Source = ImageSource.FromStream(() =>
                 {
                     var stream = file.GetStream();
@@ -69,8 +63,8 @@ namespace mushroomid
 
                 if (file == null)
                     return;
-                App.GlobalVariables.FilePath = file.Path;
-                next.IsEnabled = true;
+                App.GlobalVariables.FilePath = file.Path;//used to set file path for other pages to quickly refernece
+                next.IsEnabled = true;//force a photo selection or capture before continueing
                 image.Source = ImageSource.FromStream(() =>
                 {
                     var stream = file.GetStream();
@@ -91,10 +85,5 @@ namespace mushroomid
         {
             await Navigation.PopToRootAsync();
         }
-        //public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
-        //{
-        //    Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        //    base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        //}
     }
 }

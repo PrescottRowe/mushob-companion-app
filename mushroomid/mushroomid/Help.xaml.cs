@@ -12,7 +12,7 @@ namespace mushroomid
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Help : ContentPage
     {
-        public Help()
+        public Help() //This is a very simple text page, HTML was not working so flipped back to all xaml labels for now. 
         {
             InitializeComponent();
         }
