@@ -19,7 +19,7 @@
     <provider android:name="android.support.v4.content.FileProvider" android:authorities="com.companyname.mushroomid.fileprovider" android:exported="false" android:grantUriPermissions="true">
       <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
     </provider>
-    <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyA74_1e9bkp5-ywYrsjrLrIET07ijownvY" />
+    <meta-data android:name="com.google.android.geo.API_KEY" android:value="your-key" />
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
     <uses-library android:name="org.apache.http.legacy" android:required="false" />
     <activity android:configChanges="orientation|screenSize" android:icon="@mipmap/icon" android:label="mushroomid" android:theme="@style/MainTheme" android:name="crc649a719577288b3147.MainActivity">
