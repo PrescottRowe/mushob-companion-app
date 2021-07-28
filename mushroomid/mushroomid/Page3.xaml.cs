@@ -28,7 +28,7 @@ namespace mushroomid
         {
             loadIndicator.IsRunning = true;//used to show the user clicked the button and now the post is working. Gets shut off at exit. 
             byte[] photo = File.ReadAllBytes(App.GlobalVariables.FilePath);//file path will have been writen on page 1 and now we are turning it into a data stream for the api POST
-            HttpWebRequest myReq = (HttpWebRequest)WebRequest.Create("https://mushroomobserver.org/api/images?api_key=qrtv9psezrciw4sjhj9va38ja9h0vi6x&format=json" 
+            HttpWebRequest myReq = (HttpWebRequest)WebRequest.Create("https://mushroomobserver.org/api/images?api_key=your_key&format=json" 
                     + $"&notes=" + $"Name: " + mushroomName + $",  Cap_Shape:" + Cap_Shape.Text + $",  Cap_Width:" + Cap_Width.Text + $",  Cap_Stem_Coloring:" + Cap_Stem_Coloring.Text +
                     $",  Spore_Color:" + Spore_Color.Text + $",  Gills:" + Gills.Text + $",  Stem_Base:" + Stem_Base.Text + $",  Veil:" + Veils.Text
                     + $",  Other_Markers:" + Markers.Text + $",  Texture:" + Texture.Text);//POST URI with the notes appened. Notes are pulled from entry fields. 
@@ -91,7 +91,7 @@ namespace mushroomid
             HttpClient client = new HttpClient();
             var uri = new Uri(
                     string.Format(//the format to call to the IP is the link below with the word wanted appeneded to the uri
-                        $"https://mushroomobserver.org/api/observations?api_key=qrtv9psezrciw4sjhj9va38ja9h0vi6x&format=json&thumbnail="
+                        $"https://mushroomobserver.org/api/observations?api_key=your_key&format=json&thumbnail="
                         + imageNum + $"&location=" + placemark.Locality + $"&name=" + mushroomName + $"&latitude=" + position.Latitude + $"&longitude=" + position.Longitude + $"&notes=" +
                         $"  Cap_Shape:" + Cap_Shape.Text + $",  Cap_Width:" + Cap_Width.Text + $",  Cap_Stem_Coloring:" + Cap_Stem_Coloring.Text +
                         $",  Spore_Color:" + Spore_Color.Text + $",  Gills:" + Gills.Text + $",  Stem_Base:" + Stem_Base.Text + $",  Veil:" + Veils.Text
